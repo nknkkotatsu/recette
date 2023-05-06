@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  namespace :worker do
+    get 'genres/index'
+    get 'genres/edit'
+  end
+  namespace :worker do
+    get 'ideas/new'
+    get 'ideas/index'
+    get 'ideas/show'
+    get 'ideas/edit'
+  end
+  namespace :worker do
+    get 'recipes/new'
+    get 'recipes/index'
+    get 'recipes/show'
+    get 'recipes/edit'
+  end
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :workers,skip: [:passwords], controllers: {

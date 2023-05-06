@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_04_120847) do
+ActiveRecord::Schema.define(version: 2023_05_04_122928) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,55 @@ ActiveRecord::Schema.define(version: 2023_05_04_120847) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ideas", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "ingredient", null: false
+    t.string "allergen", null: false
+    t.text "explanation", null: false
+    t.string "remarks", null: false
+    t.string "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "quantity", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.string "point", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "procedures", force: :cascade do |t|
+    t.string "procedure", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "explanation", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "workers", force: :cascade do |t|

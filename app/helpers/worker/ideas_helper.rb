@@ -1,0 +1,2 @@
+module Worker::IdeasHelper
+end

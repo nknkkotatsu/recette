@@ -1,0 +1,2 @@
+module Worker::IngredientsHelper
+end
