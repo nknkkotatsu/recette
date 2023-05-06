@@ -10,13 +10,14 @@ Rails.application.routes.draw do
     get 'ideas/edit'
   end
   namespace :worker do
-    get 'recipes/new'
-    get 'recipes/index'
-    get 'recipes/show'
-    get 'recipes/edit'
+    #resources :recipes
+     get 'recipes/new'
+     get 'recipes/index'
+     get 'recipes/show'
+     get 'recipes/edit'
   end
   # 顧客用
-  # URL /customers/sign_in ...
+  # URL /workers/sign_in ...
   devise_for :workers,skip: [:passwords], controllers: {
     registrations: "worker/registrations",
     sessions: 'worker/sessions'

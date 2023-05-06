@@ -1,2 +1,18 @@
-<h1>Worker::Recipes#show</h1>
-<p>Find me in app/views/worker/recipes/show.html.erb</p>
+<h3>ルセット詳細</h3>
+   <%= recipe.name %>
+     <%= image_tag @recipe.get_recipe_image(200, 200) %>
+     <div>
+       <p><材料></p>
+       <%= @recipe.ingredient %>
+     </div>
+     <div>
+       <p><商品説明></p>
+       <%= @recipe.explanation %>
+     </div>
+     <div>
+       <p><作り方></p>
+       <%= @recipe.procedure %>
+     </div>
+     
+    
+     
