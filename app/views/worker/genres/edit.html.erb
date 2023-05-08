@@ -1,2 +1,10 @@
-<h1>Worker::Genres#edit</h1>
-<p>Find me in app/views/worker/genres/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+    <h3 class="bg-light">ジャンル編集</h3>
+     <%= form_with model: @genre, url: worker_genres_update_path(@genre.id) do |f| %>
+      <p><strong>ジャンル名</strong></p><%= f.text_field :name %><%= f.submit '変更を保存', class:"btn btn-success" %>
+     <% end %>
+     </div>
+  </div>
+</div>

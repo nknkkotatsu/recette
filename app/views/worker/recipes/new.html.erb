@@ -3,7 +3,8 @@
 <div class="container mt-4 align-imtes-center">
   <div class='bg-light mx-auto mb-5'>
     
-  <%= form_with model: @recipe,url: worker_recipes_path do |f| %>
+  <%= form_with model: @recipe, url: worker_recipes_new_path do |f| %>
+  
       <div class="form-group row">
         <label class="col-sm-4 col-form-label">商品画像</label>
         <div class="col-sm-8">
@@ -19,25 +20,27 @@
       </div>
 
     <!------------ 材料登録欄 -------------->
+    
       <div class="row">
         <label class="col-sm-4 col-form-label">材料</label>
-        <table class="table table-borderless mb-0" id="ingredient-table">
-          <thead>
-            <th class="pb-1"><h6 class="mb-0">材料</h6></th>
-            <th class="pb-1"><h6 class="mb-0">分量</h6></th>
-          </thead>
-          <tbody>
-            <%= f.fields_for :ingredient do |ingredient| %>
-              <tr>
-                <td style="width: 12%" class="py-1"><%= ingredient.text_field :name, placeholder: "例）砂糖" %></td>
-                <td style="width: 10%" class="py-1"><%= ingredient.text_field :quantity, placeholder: "例）100g" %></td>
-                <td class="align-middle p-0"><input type="button" value="削除" onclick="deleteRow(this)"></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <input type="button" value="行を追加する" onclick="addRow('ingredient-table')" class="btn btn-sm btn-color py-0 my-3 ml-2">
+           <div class="ingredients">
+      <div class="mx-auto">
+        <%= f.fields_for :ingredients do |t| %>
+          <%= render "recipes/ingredient_fields", f: t %>
+        <% end %>
       </div>
+
+      <div id="detail-association-insertion-point"></div>
+
+      <div class="col-10 mx-auto mt-2">
+        <%= link_to_add_association "+フォームを追加", f, :ingredients,
+        class: "btn btn-secondary btn-block",
+        data: {
+        association_insertion_node: '#detail-association-insertion-point',
+        association_insertion_method: 'after'
+        }%>
+      </div>
+    </div>
       
       <div class="form-group row">
         <label class="col-sm-4 col-form-label">商品説明</label>

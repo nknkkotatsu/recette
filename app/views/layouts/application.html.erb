@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recette</title>
+    <title>るせっと</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <header>
+      <ul class="navbar-nav ml-auto">
+          <% if worker_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to "ログアウト", destroy_worker_session_path, method: :delete, class: "nav-link" %>
+            </li>
+          <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
