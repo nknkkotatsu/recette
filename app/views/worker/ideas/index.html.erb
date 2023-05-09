@@ -1,2 +1,37 @@
-<h1>Worker::Ideas#index</h1>
-<p>Find me in app/views/worker/ideas/index.html.erb</p>
+<div class="container">
+  <div class="row">
+      <h4 class="col-lg-auto bg-light text-center">商品案一覧</h4>
+  </div>
+
+      <div class="row justify-content-end">
+      <%= link_to worker_ideas_new_path do %>
+        <i class="fas fa-plus-circle fa-2x" style="color: #bfc5cf;"></i>
+      <% end %>
+      </div>
+
+      <div class="row justify-content-lg-center">
+        <table class="table table-borderless table-hover table-inverse border-top border-bottom">
+          <thead class="thead-light">
+            <tr>
+              <th></th>
+              <th>作成日</th>
+              <th>商品名</th>
+              <th>作成者</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @ideas.each do |idea| %>
+            <tr>
+              <td><%= image_tag idea.get_recipe_image(200, 200) %></td>
+              <td><%= idea.created_at %></td>
+              <td><%= link_to idea.name, worker_ideas_show_path(idea) %></td>
+              <td><%= idea.worker_id %></td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+        <%= paginate @ideas %>
+
+      </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_08_122101) do
+ActiveRecord::Schema.define(version: 2023_05_09_101135) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -73,14 +73,16 @@ ActiveRecord::Schema.define(version: 2023_05_08_122101) do
     t.string "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "genre_id", null: false
+    t.index ["genre_id"], name: "index_ideas_on_genre_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name", null: false
     t.string "quantity", null: false
+    t.integer "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "recipe_id", null: false
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
@@ -94,26 +96,36 @@ ActiveRecord::Schema.define(version: 2023_05_08_122101) do
     t.string "procedure", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "recipe_id", null: false
+    t.index ["recipe_id"], name: "index_procedures_on_recipe_id"
   end
 
   create_table "recipes", force: :cascade do |t|
+    t.integer "worker_id", null: false
     t.string "name", null: false
     t.text "explanation", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["worker_id"], name: "index_recipes_on_worker_id"
   end
 
   create_table "workers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "encrypted_password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "name", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "remember_created_at"
-    t.index ["remember_created_at"], name: "index_workers_on_remember_created_at"
+    t.index ["email"], name: "index_workers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_workers_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "ideas", "genres"
   add_foreign_key "ingredients", "recipes"
+  add_foreign_key "procedures", "recipes"
+  add_foreign_key "recipes", "workers"
 end
