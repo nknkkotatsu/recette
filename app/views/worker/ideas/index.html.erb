@@ -3,11 +3,6 @@
       <h4 class="col-lg-auto bg-light text-center">商品案一覧</h4>
   </div>
 
-      <div class="row justify-content-end">
-      <%= link_to worker_ideas_new_path do %>
-        <i class="fas fa-plus-circle fa-2x" style="color: #bfc5cf;"></i>
-      <% end %>
-      </div>
 
       <div class="row justify-content-lg-center">
         <table class="table table-borderless table-hover table-inverse border-top border-bottom">
@@ -23,10 +18,10 @@
           <tbody>
             <% @ideas.each do |idea| %>
             <tr>
-              <td><%= image_tag idea.get_recipe_image(200, 200) %></td>
-              <td><%= idea.created_at %></td>
-              <td><%= link_to idea.name, worker_ideas_show_path(idea) %></td>
-              <td><%= idea.worker_id %></td>
+              <td><%= image_tag idea.get_idea_image(200, 200) %></td>
+              <td><%= idea.created_at.strftime('%Y/%m/%d ') %></td>
+              <td><%= link_to idea.name, worker_idea_path(idea) %></td>
+              <td><%= idea.worker.name %></td>
             </tr>
           </tbody>
           <% end %>

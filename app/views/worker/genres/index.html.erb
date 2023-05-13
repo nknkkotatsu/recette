@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-5">
       <h3 class="bg-light">ジャンル一覧・追加</h3>
-      <%= form_with model: @genre, url: worker_genres_create_path, method: :post do |f| %>
+      <%= form_with model: @genre, url: worker_genres_path, method: :post do |f| %>
       <div class="form-check form-check-inline">
         <p>ジャンル名&emsp;&emsp;<%= f.text_field :name %>&emsp;&emsp;<%= f.submit '新規登録', class:"btn btn-success" %></p>
       </div>
@@ -17,7 +17,7 @@
       <% @genres.each do |genre| %>
         <tr>
           <td><%= genre.name %></td>
-          <td><%= link_to "編集する", worker_genres_edit_path(genre), class:"btn btn-success" %></td>
+          <td><%= link_to "編集する", edit_worker_genre_path(genre), class:"btn btn-success" %></td>
         </tr>
       <% end %>
       </table>

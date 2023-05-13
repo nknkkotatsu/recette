@@ -8,7 +8,7 @@ class Worker::RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save!
-      redirect_to worker_worker_recipes_path, notice: "ルセットを投稿しました！"
+      redirect_to worker_recipes_path, notice: "ルセットを投稿しました！"
     else
       render :new, alert: "登録できませんでした。お手数ですが、入力内容をご確認のうえ再度お試しください"
     end
@@ -19,11 +19,28 @@ class Worker::RecipesController < ApplicationController
   end
 
   def show
+    @recipe = Recipe.find(params[:id])
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
   end
-end
+  
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      redirect_to worker_recipes_path
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to worker_recipes_path
+  end
+
 private
 
   def recipe_params
@@ -32,3 +49,4 @@ private
       ingredients_attributes: [:name, :quantity, :_destroy]
     )
   end
+end

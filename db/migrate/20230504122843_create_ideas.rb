@@ -7,6 +7,7 @@ class CreateIdeas < ActiveRecord::Migration[6.1]
       t.text :explanation, null: false
       t.string :remarks, null: false
       t.string :price, null: false
+      t.integer :worker_id, null: false
       t.timestamps
     end
   end

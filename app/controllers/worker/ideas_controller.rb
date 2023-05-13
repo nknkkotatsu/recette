@@ -5,8 +5,10 @@ class Worker::IdeasController < ApplicationController
   
   def create
     @idea = Idea.new(idea_params)
-    if @idea.save
-      redirect_to worker_ideas_show_path(@idea.id)
+    @idea.worker_id = current_worker.id
+    #binding.pry
+    if @idea.save!
+      redirect_to worker_idea_path(@idea.id)
     else
       render :new
     end
@@ -27,10 +29,16 @@ class Worker::IdeasController < ApplicationController
   def update
     @idea = Idea.find(params[:id])
     if @idea.update(idea_params)
-      redirect_to worker_ideas_show_path(@idea.id)
+      redirect_to worker_idea_path(@idea.id)
     else
       render :edit
     end
+  end
+  
+  def destroy
+    @idea = Idea.find(params[:id])
+    @idea.destroy
+    redirect_to worker_ideas_path
   end
 
 

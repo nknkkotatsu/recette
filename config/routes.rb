@@ -1,29 +1,14 @@
 Rails.application.routes.draw do
 
-  #root to: "worker/recipes#index"
   root to: 'worker/homes#top'
     #会員一覧
   get '/admin/workers' => 'admin/workers#index'
   get '/admin/workers/:id' => 'admin/workers#show' ,as: 'admin_worker'
   patch '/admin/workers/:id' => 'admin/workers#update', as: 'admin_worker_update'
-
-  namespace :worker do
-    get 'genres/index'
-    #get 'genres/edit'
-    post '/worker/genres' => 'worker/genres#create', as: 'worker_genres_create'
-    patch '/worker/genres/:id' => 'worker/genres#update', as: 'worker_genres_update'
-    get '/worker/genres/:id/edit' => 'worker/genres#edit', as: 'worker_genres_edit'
   
-    post '/worker/ideas' => 'worker/ideas#create', as: 'worker_ideas_create'
-    get 'ideas/new'
-    get 'ideas/index'
-    get 'ideas/show'
-    get 'ideas/edit'
-    
-   
-    resources :workers, only: [:index,:show,:edit,:update] do
-      resources :recipes
-    end
+  namespace :worker do
+    resources :workers, only: [:index,:show,:edit,:update,]
+      resources :recipes, :ideas, :genres
   end
   # 会員用
   # URL /workers/sign_in ...

@@ -1,9 +1,13 @@
 <h3>ルセット詳細</h3>
-   <%= recipe.name %>
+<h3><%= @recipe.name %></h3>
+
      <%= image_tag @recipe.get_recipe_image(200, 200) %>
      <div>
        <p><材料></p>
-       <%= @recipe.ingredient %>
+       <% @recipe.ingredients.each do |ingredient| %>
+          <%= ingredient.name %>
+          <%= ingredient.quantity %>
+       <% end %>
      </div>
      <div>
        <p><商品説明></p>
@@ -11,8 +15,11 @@
      </div>
      <div>
        <p><作り方></p>
-       <%= @recipe.procedure %>
+          <% @recipe.procedures.each do |procedure| %>
+          <%= procedure.procedure %>
+       <% end %>
      </div>
      
-    
-     
+     <%= link_to '編集する', edit_worker_recipe_path, class: "btn btn-success" %>
+
+

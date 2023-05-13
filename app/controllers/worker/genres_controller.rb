@@ -8,7 +8,7 @@ class Worker::GenresController < ApplicationController
   def create
    genre = Genre.new(genre_params)
     if genre.save
-      redirect_to worker_genres_index_path, notice: "ジャンルを作成しました。"
+      redirect_to worker_genres_path, notice: "ジャンルを作成しました。"
     else
       @genre = genre
       @genres = Genre.all
@@ -23,9 +23,9 @@ class Worker::GenresController < ApplicationController
   def update
     genre = Genre.find(params[:id])
     if genre.update(genre_params)
-    redirect_to worker_genres_index_path
+    redirect_to worker_genres_path
     else
-    redirect_to worker_genres_edit_path
+    redirect_to edit_worker_genre_path
     end
   end
 
