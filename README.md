@@ -1,24 +1,32 @@
-# README
+# <るせっと>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+社内でのレシピ、完成写真、アピールポイントを共有できるツール
 
-Things you may want to cover:
+### テーマを選んだ理由
+前職で和菓子職人をしていて、自分が書いたメモでも探すのに時間がかかったり1年前の商品でもデザインを忘れていたりしたのでその記録、販売員とも共有しアピールポイントや使用した材料などいつでもすぐに見返すことのできるアプリがあれば便利だと考えこのテーマにしました。このサイトを使うことでレシピを探す時間を短縮し効率アップ・常に増えていくレシピ、使わなくなっても後で見返したいレシピをデータで管理することでスペースの確保も実現可能です。
 
-* Ruby version
+### ターゲットユーザ
+- 和菓子店工場
+- 和菓子店販売員
+- 洋菓子店工場
+- 洋菓子店販売員
 
-* System dependencies
+### 主な利用シーン
+- 商品のレシピを確認する時
+- 商品のデザインを確認する時
+- 商品案を販売員と共有する時
 
-* Configuration
+## 設計書
+画面遷移図、ワイヤーフレーム、ER図作成中です
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+使用検討中です
