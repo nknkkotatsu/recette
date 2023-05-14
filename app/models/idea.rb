@@ -12,4 +12,18 @@ class Idea < ApplicationRecord
     image.variant(resize_to_fit: [width, height]).processed
   end
   
+  #検索機能
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @idea = Idea.where("name LIKE?","#{word}")
+    elsif search == "forward_match"
+      @idea = Idea.where("name LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @idea = Idea.where("name LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @idea = Idea.where("name LIKE?","%#{word}%")
+    else
+      @idea = Idea.all
+    end
+  end
 end

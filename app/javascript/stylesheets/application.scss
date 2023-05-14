@@ -1,2 +1,12 @@
 @use '~bootstrap/scss/bootstrap';
 @use '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.bg-sky-blue {
+  background-color: #90E7EF;
+}
+.navbar{
+  display: flex;
+}
+.navbar-toggler {
+  margin-left: auto;
+}

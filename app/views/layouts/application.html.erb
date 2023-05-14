@@ -11,14 +11,25 @@
   </head>
 
   <body>
-    <header>
-      <ul class="navbar-nav ml-auto">
+    <header class="sticky-top">
+
+      <nav class="navbar navbar-expand-md navbar-light mt-0 mb-0" style="background-color: #CCF7FA;">
+        <a class="navbar-brand" href="/">
+          <%= image_tag 'RecetteLogo.jpg', width: '80px', height: '80px' %>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+      <ul class="navbar-nav ml-auto" style="text-align: right;">
           <% if worker_signed_in? %>
           <li class="nav-item active">
-              <%= link_to "ルセット登録", new_worker_recipe_path, class: "nav-link" %>
+              <%= link_to "レシピ登録", new_worker_recipe_path, class: "nav-link" %>
             </li>
             <li class="nav-item active">
-              <%= link_to "ルセット一覧", worker_recipes_path, class: "nav-link" %>
+              <%= link_to "レシピ一覧", worker_recipes_path, class: "nav-link" %>
             </li>
             <li class="nav-item active">
               <%= link_to "商品案一覧", worker_ideas_path,method: :get, class: "nav-link" %>

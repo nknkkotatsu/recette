@@ -25,7 +25,7 @@ class Worker::RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
   end
-  
+
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
@@ -34,7 +34,7 @@ class Worker::RecipesController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
@@ -45,8 +45,8 @@ private
 
   def recipe_params
     params.require(:recipe).permit(:name, :explanation, :image,:worker_id,
-      procedures_attributes: [:procedure, :_destroy],
-      ingredients_attributes: [:name, :quantity, :_destroy]
+      procedures_attributes: [:id, :procedure, :_destroy],
+      ingredients_attributes: [:id, :name, :quantity, :_destroy]
     )
   end
 end

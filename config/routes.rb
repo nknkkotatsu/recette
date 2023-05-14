@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/admin/workers' => 'admin/workers#index'
   get '/admin/workers/:id' => 'admin/workers#show' ,as: 'admin_worker'
   patch '/admin/workers/:id' => 'admin/workers#update', as: 'admin_worker_update'
-  
+  get "worker/search" => "worker/searches#search"
   namespace :worker do
     resources :workers, only: [:index,:show,:edit,:update,]
       resources :recipes, :ideas, :genres

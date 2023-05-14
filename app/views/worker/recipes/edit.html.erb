@@ -1,78 +1,79 @@
-<h3>ルセット編集</h3>
+
 
 <div class="container mt-4 align-imtes-center">
-
+<h3>レシピ編集</h3>
   <%= form_with model: @recipe, url: worker_recipe_path do |f| %>
 
       <div class="form-group row">
-        <label class="col-sm-4 col-form-label">商品画像</label>
-        <div class="col-sm-8">
+        <label class="col-md-4 col-form-label">商品画像</label>
+        <div class="col-md-8">
           <%= f.file_field :image, class: "form-control-file", accept: 'image/*' %>
         </div>
       </div>
 
       <div class="form-group row">
-        <label class="col-sm-4 col-form-label">商品名</label>
-        <div class="col-sm-8">
+        <label class="col-md-4 col-form-label">商品名</label>
+        <div class="col-md-8">
         <%= f.text_field :name, class: "form-control-file", placeholder: "商品名" %>
-      </div>
-      </div>
-      
-          <!------------ 材料登録欄 -------------->
-    <label class="col-sm-4 col-form-label">材料</label>
-
-        <%= f.fields_for :ingredients do |t| %>
-          <%= render "ingredient_fields", f: t %>
-        <% end %>
-
-      <div id="detail-association-insertion-point"></div>
-
-        <%= link_to_add_association "+フォームを追加", f, :ingredients,
-        class: "btn btn-secondary btn-block",
-        data: {
-        association_insertion_node: '#detail-association-insertion-point',
-        association_insertion_method: 'after'
-        }%>
-      
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">商品説明</label>
-        <div class="col-sm-8">
-          <%= f.text_area :explanation, class: "form-control-file", placeholder: "ここに説明文を記述します" %>
         </div>
       </div>
-      
-      <!------------ 作成手順登録欄 -------------->
-    <div style='max-width: 680px' class="mt-3 px-5 pt-4 mx-auto border-0">
-      <div class="row">
-        <label class="col-sm-4 col-form-label">作り方</label>
-      </div>
 
-      <div class="row">
-        <table class="table table-borderless" id="procedure-table">
-          <%= f.fields_for :procedures do |p| %>
-            <%= render "procedure_fields", f: p %>
+          <!------------ 材料登録欄 -------------->
+      <div class="form-group row">
+        <label class="col-md-4 col-form-label">材料</label>
+        <div class="col-md-8">
+          <%= f.fields_for :ingredients do |t| %>
+            <%= render "ingredient_fields", f: t %>
           <% end %>
-        </table>
           <div id="detail-association-insertion-point"></div>
-          <%= link_to_add_association "+フォームを追加", f, :procedures,
+        </div>
+        <div class="col-md-4 offset-md-4">
+          <%= link_to_add_association "+フォームを追加", f, :ingredients,
           class: "btn btn-secondary btn-block",
           data: {
           association_insertion_node: '#detail-association-insertion-point',
           association_insertion_method: 'after'
           }%>
+        </div>
       </div>
-    </div>
+
+      <div class="form-group row">
+        <label class="col-md-4 col-form-label">商品説明</label>
+        <div class="col-md-8">
+          <%= f.text_area :explanation, class: "form-control-file", placeholder: "ここに説明文を記述します" %>
+        </div>
+      </div>
+
+      <!------------ 作成手順登録欄 -------------->
+      <div class="form-group row">
+          <label class="col-md-4 col-form-label">作り方</label>
+
+          <div class="col-md-8">
+            <%= f.fields_for :procedures do |p| %>
+              <%= render "procedure_fields", f: p %>
+            <% end %>
+            <div id="detail-association-insertion-point2"></div>
+          </div>
+          <div class="col-md-4 offset-md-4">
+            <%= link_to_add_association "+フォームを追加", f, :procedures,
+            class: "btn btn-secondary btn-block",
+            data: {
+            association_insertion_node: '#detail-association-insertion-point2',
+            association_insertion_method: 'after'
+            }%>
+          </div>
+      </div>
 
     <div class="form-group row">
-      <label class="col-sm-4 col-form-label">ジャンル</label>
-      <div class="col-sm-8">
+      <label class="col-md-4 col-form-label">ジャンル</label>
+      <div class="col-md-8">
         <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name),  { include_blank: "--選択してください--" }, class: "form-control" %>
       </div>
     </div>
     <div class="row mt-4 pb-5">
       <div class="form-inline mx-auto">
         <%= f.hidden_field :worker_id, :value => current_worker.id %>
-        <%= f.submit '変更を保存', style: 'font-size: 20px', class:'mr-5 btn btn-sm btn-success text-white' %>
+        <%= f.submit 'レシピを保存', style: 'font-size: 20px', class:'mr-5 btn btn-md btn-success' %>
         <%= link_to '削除する', worker_recipe_path,method: :delete, class: "btn btn-danger" %>
       </div>
     </div>

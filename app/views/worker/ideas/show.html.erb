@@ -1,23 +1,29 @@
-<h3>商品案</h3>
-
-<%= image_tag @idea.get_idea_image(200, 200) %>
-<table>
-
-    <th>商品名</th>
-    <td><%= @idea.name %></td>
-    <th>価格</th>
-    <td><%= @idea.price %></td>
-</table>
-
-<p>商品説明・アピールポイント</p>
-  <%= @idea.explanation %>
-
-  <table>
-    <tr><th>原材料</th><td><%= @idea.ingredient %></td></tr>
-    <tr><th>アレルゲン</th><td><%= @idea.allergen %></td></tr>
-    <tr><th>備考</th><td><%= @idea.remarks %></td></tr>
-    <tr><th>ジャンル</th><td><%#= @idea.genre.name %></td></tr>
-  </table>
-  
-  <%= link_to '編集する', edit_worker_idea_path(@idea), class: "btn btn-success" %>
-  <%= link_to '削除する', worker_idea_path(@idea),method: :delete, class: "btn btn-danger" %>
+<div class="container mt-4 align-imtes-center">
+  <h3>商品案</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @idea.get_idea_image(200, 200) %>
+      </div>
+      <div class="col-md-8">
+        <table class="table">
+          <th>商品名</th>
+          <td><%= @idea.name %></td>
+          <th>価格</th>
+          <td><%= @idea.price %></td>
+        </table>
+        <table class="table">
+          <tr><th>商品説明・アピールポイント</th></tr>
+          <tr><td><%= @idea.explanation %></td></tr>
+        </table>
+      </div>
+      <table class="table">
+        <tr><th>原材料</th><td><%= @idea.ingredient %></td></tr>
+        <tr><th>アレルゲン</th><td><%= @idea.allergen %></td></tr>
+        <tr><th>備考</th><td><%= @idea.remarks %></td></tr>
+        <tr><th>ジャンル</th><td><%#= @idea.genre.name %></td></tr>
+      </table>
+    
+      <%= link_to '編集する', edit_worker_idea_path(@idea), class: "btn btn-success" %>
+      <%= link_to '削除する', worker_idea_path(@idea),method: :delete, class: "btn btn-danger" %>
+    </div>
+</div>

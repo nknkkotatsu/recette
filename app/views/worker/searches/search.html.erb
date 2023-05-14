@@ -1,0 +1,27 @@
+<h2>検索結果</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがRecipeの時 -->
+  <% if @range == "Recipe" %>
+    <tbody>
+      <% @recipe.each do |recipe| %>
+        <tr>
+          <td><%= link_to worker_recipe_path(@recipe.ids) do %>
+            <%= recipe.name %>
+            <% end %>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <!--検索対象モデルがRecipeではない時(= 検索対象モデルがIdeaの時) -->
+    <tbody>
+      <% @idea.each do |idea| %>
+        <tr>
+          <td><%= link_to worker_idea_path(@idea.ids) do %>
+            <%= idea.name %><% end %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

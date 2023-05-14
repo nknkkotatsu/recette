@@ -1,14 +1,27 @@
-<h3>ルセット詳細</h3>
-<h3><%= @recipe.name %></h3>
+<div class="container mt-4 align-imtes-center">
 
-     <%= image_tag @recipe.get_recipe_image(200, 200) %>
-     <div>
-       <p><材料></p>
-       <% @recipe.ingredients.each do |ingredient| %>
-          <%= ingredient.name %>
-          <%= ingredient.quantity %>
-       <% end %>
+<h3><%= @recipe.name %></h3>
+     <div class="row">
+          <div class="col-md-4">
+               <%= image_tag @recipe.get_recipe_image(200, 200), class: 'img-fluid' %>
+          </div>
+          <div class="col-md-8">
+               <p><材料></p>
+               <!--<table class="table">-->
+               <div class="row">
+                    <% @recipe.ingredients.each do |ingredient| %>
+                         <!--<tr>-->
+                         <!--     <th><%= ingredient.name %></th>-->
+                         <!--     <td><%= ingredient.quantity %></td>-->
+                         <!--</tr>-->
+                         <div class="col-md-6"><strong><%= ingredient.name %></strong></div>
+                         <div class="col-md-6"><%= ingredient.quantity %></div>
+                    <% end %>
+               </div>
+               <!--</table>-->
+          </div>
      </div>
+
      <div>
        <p><商品説明></p>
        <%= @recipe.explanation %>
@@ -19,7 +32,6 @@
           <%= procedure.procedure %>
        <% end %>
      </div>
-     
+
      <%= link_to '編集する', edit_worker_recipe_path, class: "btn btn-success" %>
-
-
+</div>
