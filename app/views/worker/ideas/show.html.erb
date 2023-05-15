@@ -5,25 +5,53 @@
         <%= image_tag @idea.get_idea_image(200, 200) %>
       </div>
       <div class="col-md-8">
-        <table class="table">
+        <table class="table table-borderless">
           <th>商品名</th>
           <td><%= @idea.name %></td>
           <th>価格</th>
           <td><%= @idea.price %></td>
         </table>
         <table class="table">
-          <tr><th>商品説明・アピールポイント</th></tr>
-          <tr><td><%= @idea.explanation %></td></tr>
+          <tr class="table table-bordered"><th>商品説明・アピールポイント</th></tr>
+          <tr class="table table-bordered"><td><%= @idea.explanation %></td></tr>
         </table>
       </div>
-      <table class="table">
-        <tr><th>原材料</th><td><%= @idea.ingredient %></td></tr>
+      <table class="table table-bordered">
+        <tr><th style="width:20%">原材料</th><td><%= @idea.ingredient %></td></tr>
         <tr><th>アレルゲン</th><td><%= @idea.allergen %></td></tr>
         <tr><th>備考</th><td><%= @idea.remarks %></td></tr>
         <tr><th>ジャンル</th><td><%#= @idea.genre.name %></td></tr>
       </table>
-    
+    </div>
+          <!--コメント-->
+    <div class="row">
+    <div class="col-md-6 offset-1">
+      <% @idea.comments.each do |comment| %>
+      <table class="table">
+        <tr>
+            <%= comment.comment %></tr>
+        <tr>
+          <th>コメント者</th>
+            <td><%= comment.worker.name %></td>
+          <th>コメント日</th>
+            <td><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+      <div class="col-md-5">
+        <%= form_with model: [@idea, @comment], url: worker_idea_comments_path(@idea) do |f| %>
+          <%= f.text_area :comment, rows: '5', placeholder: "良い点・気になる点など" %>
+          <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-8 offset-4">
       <%= link_to '編集する', edit_worker_idea_path(@idea), class: "btn btn-success" %>
       <%= link_to '削除する', worker_idea_path(@idea),method: :delete, class: "btn btn-danger" %>
     </div>
+
+
+
 </div>

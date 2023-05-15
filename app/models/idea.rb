@@ -3,6 +3,7 @@ class Idea < ApplicationRecord
   belongs_to :genre, optional: true
   belongs_to :worker
   attribute :genre_id, :integer
+  has_many :comments, dependent: :destroy
   
   def get_idea_image(width, height)
     unless image.attached?

@@ -20,6 +20,8 @@ class Worker::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @total = 0
+    @point = Point.new
   end
 
   def edit

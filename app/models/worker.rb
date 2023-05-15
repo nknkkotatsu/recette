@@ -3,8 +3,10 @@ class Worker < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :recipes
-  has_many :ideas
+  has_many :recipes, dependent: :destroy
+  has_many :ideas, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :points, dependent: :destroy
   # ゲストログイン
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |worker|

@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   get "worker/search" => "worker/searches#search"
   namespace :worker do
     resources :workers, only: [:index,:show,:edit,:update,]
-      resources :recipes, :ideas, :genres
+      resources :genres
+        resources :recipes do
+          resources  :points, only: [:create]
+        end
+        resources :ideas do
+          resources :comments, only: [:create]
+        end
   end
   # 会員用
   # URL /workers/sign_in ...

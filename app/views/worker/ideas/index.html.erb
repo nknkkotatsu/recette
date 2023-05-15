@@ -11,7 +11,8 @@
               <th></th>
               <th>作成日</th>
               <th>商品名</th>
-              <th >作成者</th>
+              <th>作成者</th>
+              <th>コメント数</th>
             </tr>
           </thead>
 
@@ -19,9 +20,12 @@
             <% @ideas.each do |idea| %>
             <tr>
               <td><%= image_tag idea.get_idea_image(200, 200) %></td>
-              <td><%= idea.created_at.strftime('%Y/%m/%d ') %></td>
+              <td><%= idea.created_at.strftime('%Y/%m/%d') %></td>
               <td><%= link_to idea.name, worker_idea_path(idea) %></td>
               <td><%= idea.worker.name %></td>
+              <td><%= link_to worker_idea_path(idea) do %>
+                <i class="far fa-comment-dots"></i><%= idea.comments.count %>
+                  <% end %></td>
             </tr>
           </tbody>
           <% end %>

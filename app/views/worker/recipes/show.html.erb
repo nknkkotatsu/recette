@@ -1,5 +1,7 @@
 <div class="container mt-4 align-imtes-center">
-
+     <% @recipe.points.each do |point| %>
+     <i class="fas fa-exclamation-triangle"></i> <%= point.point %>
+     <% end %>
 <h3><%= @recipe.name %></h3>
      <div class="row">
           <div class="col-md-4">
@@ -29,9 +31,22 @@
      <div>
        <p><作り方></p>
           <% @recipe.procedures.each do |procedure| %>
-          <%= procedure.procedure %>
-       <% end %>
+               <div class="col-md-6"><%= (@total += 1) %>.<%= procedure.procedure %></div>
+          <% end %>
      </div>
-
-     <%= link_to '編集する', edit_worker_recipe_path, class: "btn btn-success" %>
+     <div class="row">
+          <div class="col-md-8 offset-5">
+               <%= link_to '編集する', edit_worker_recipe_path, class: "btn btn-success" %>
+          </div>
+     </div>
+               <!--コメント-->
+    <div class="row">
+         
+      <div class="col-md-8 offset-4">
+        <%= form_with model: [@recipe, @point], url: worker_recipe_points_path(@recipe) do |f| %>
+          <%= f.text_area :point, rows: '5', placeholder: "注意点" %>
+          <%= f.submit "送信する" %>
+        <% end %>
+      </div>
+    </div>
 </div>

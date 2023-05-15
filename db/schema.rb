@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(version: 2023_05_09_101135) do
 
   create_table "comments", force: :cascade do |t|
     t.string "comment", null: false
+    t.integer "worker_id", null: false
+    t.integer "idea_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -87,6 +89,8 @@ ActiveRecord::Schema.define(version: 2023_05_09_101135) do
 
   create_table "points", force: :cascade do |t|
     t.string "point", null: false
+    t.integer "worker_id", null: false
+    t.integer "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
