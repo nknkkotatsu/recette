@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-lg-center">
-<%= render "worker/searches/search",recipe:@resipe %>
+<%= render "worker/recipes/side_bar",recipe:@recipe %>
     <div class='col-md-10 col-md-offset-2'>
       <div>
         <h4>レシピ一覧(全<%=@recipes.count %>件)</h4>
@@ -16,8 +16,8 @@
    </div>
   <% end %>
   </div>
-  <!--五十音索引-->
-    <%#= link_to _path(str: “あ”) %>
+
+
        <div class="row justify-content-lg-center">
        <%= paginate @recipes %>
        </div>
