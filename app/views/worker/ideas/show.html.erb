@@ -27,16 +27,14 @@
     <div class="row">
     <div class="col-md-6 offset-1">
       <% @idea.comments.each do |comment| %>
-      <table class="table">
-        <tr>
-            <%= comment.comment %></tr>
-        <tr>
-          <th>コメント者</th>
-            <td><%= comment.worker.name %></td>
-          <th>コメント日</th>
-            <td><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
-        </tr>
-      </table>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+    <h5 class="card-title"><%= comment.worker.name %></h5>
+    <p class="card-text"><%= comment.comment %></p>
+    <p><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
       <% end %>
     </div>
       <div class="col-md-5">

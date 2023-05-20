@@ -28,7 +28,7 @@ class Recipe < ApplicationRecord
     if search == "perfect_match"
       @recipe = Recipe.where("name LIKE?", "#{word}")
     elsif search == "forward_match"
-
+      @recipe = Recipe.where("name LIKE?", "#{word}%")
       if word.start_with?("あ")
         @recipe = Recipe.where("name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? ",
                                 "あ%", "い%", "う%", "え%", "お%", "ア%", "イ%", "ウ%", "エ%", "オ%",)
@@ -52,7 +52,7 @@ class Recipe < ApplicationRecord
                                 "な%", "に%", "ぬ%", "ね%", "の%", "ナ%", "ニ%", "ヌ%", "ネ%", "ノ%",)
       elsif word.start_with?("は")
         @recipe = Recipe.where("name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ?  OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ?
-                                OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? 
+                                OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ?
                                 OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? ",
                                 "は%", "ひ%", "ふ%", "へ%", "ほ%", "ハ%", "ヒ%", "フ%", "ヘ%", "ホ%",
                                 "ば%", "び%", "ぶ%", "べ%", "ぼ%", "バ%", "ビ%", "ブ%", "ベ%", "ボ%",
