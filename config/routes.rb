@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   # ゲストユーザー用
   devise_scope :worker do
-    post 'workers/guest_sign_in', to: 'workers/sessions#guest_sign_in'
+    post 'workers/guest_sign_in', to: 'worker/sessions#guest_sign_in'
   end
 
 end

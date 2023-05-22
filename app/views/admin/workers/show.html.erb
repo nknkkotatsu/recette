@@ -2,6 +2,8 @@
 <div class="container">
   <div class="row">
     <h3 class="bg-light"><%= @worker.name %>さんの詳細ページ</h3>
+  </div>
+  <div class="row">
     <%= form_with model: @worker, url: admin_worker_update_path(@worker.id) do |f| %>
     <table class="table  table-borderless">
   <tr>

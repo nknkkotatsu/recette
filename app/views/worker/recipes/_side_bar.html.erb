@@ -1,19 +1,19 @@
 <div class="col-md-2">
-<nav class="bg-dark">
+<nav class="nav" style="background-color: #F5FAFC; height: 100%">
   <!--検索窓-->
   <%= render "worker/searches/search",recipe:@recipe %>
   <!--五十音索引-->
     <ul class="nav flex-column m-0 p-3" style="width: 10rem;">
-        <li class="nav-item mb-2"><%= link_to "あ行", worker_search_path(search: "forward_match",word: "あ",range: "Recipe") %></li>
-        <li class="nav-item mb-2"><%= link_to "か行", worker_search_path(search: "forward_match",word: "か",range: "Recipe") %></li>
-        <li class="nav-item mb-2"><%= link_to "さ行", worker_search_path(search: "forward_match",word: "さ",range: "Recipe") %></li>
-        <li class="nav-item mb-2"><%= link_to "た行", worker_search_path(search: "forward_match",word: "た",range: "Recipe") %></li>
-        <li class="nav-item mb-2"><%= link_to "な行", worker_search_path(search: "forward_match",word: "な",range: "Recipe") %></li>
-        <li class="nav-item mb-2"><%= link_to "は行", worker_search_path(search: "forward_match",word: "は",range: "Recipe") %></li>
-        <li class="nav-item mb-2"><%= link_to "ま行", worker_search_path(search: "forward_match",word: "ま",range: "Recipe") %></li>
-        <li class="nav-item mb-2"><%= link_to "や行", worker_search_path(search: "forward_match",word: "や",range: "Recipe") %></li>
-        <li class="nav-item mb-2"><%= link_to "ら行", worker_search_path(search: "forward_match",word: "ら",range: "Recipe") %></li>
-        <li class="nav-item mb-2"><%= link_to "わ行", worker_search_path(search: "forward_match",word: "わ",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "あ行", worker_search_path(search: "forward_match",word: "あ",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "か行", worker_search_path(search: "forward_match",word: "か",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "さ行", worker_search_path(search: "forward_match",word: "さ",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "た行", worker_search_path(search: "forward_match",word: "た",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "な行", worker_search_path(search: "forward_match",word: "な",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "は行", worker_search_path(search: "forward_match",word: "は",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "ま行", worker_search_path(search: "forward_match",word: "ま",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "や行", worker_search_path(search: "forward_match",word: "や",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "ら行", worker_search_path(search: "forward_match",word: "ら",range: "Recipe") %></li>
+        <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "わ行", worker_search_path(search: "forward_match",word: "わ",range: "Recipe") %></li>
     </ul>
 </nav>
 </div>
