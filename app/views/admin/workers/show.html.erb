@@ -4,7 +4,6 @@
     <h3 class="bg-light"><%= @worker.name %>さんの詳細ページ</h3>
   </div>
   <div class="row">
-    <%= form_with model: @worker, url: admin_worker_update_path(@worker.id) do |f| %>
     <table class="table  table-borderless">
   <tr>
     <td>会員ID</td>
@@ -18,15 +17,7 @@
     <td>メールアドレス</td>
     <td><%= @worker.email %></td>
   </tr>
-  <tr>
-    <td>会員ステータス</td>
-      <%#= f.radio_button :is_deleted, false %>
-        <%#= f.label :is_deleted, "有効"%>
-      <%#= f.radio_button :is_deleted, true %>
-        <%#= f.label :is_deleted, "退会" %>
-  </tr>
    </table>
-   <%= f.submit '変更を保存', class: "btn btn-success" %>
-   <% end %>
+   <%= link_to "退会させる", worker_hide_path(@worker.id), method: :put %>
   </div>
 </div>

@@ -18,21 +18,18 @@ class Admin::WorkersController < ApplicationController
        redirect_to admin_workers_path(worker.id)
     end
   end
-  
+
   def check
     @worker = Worker.find(params[:id])
     #ユーザーの情報を見つける
   end
-  
-  def withdrawl
-      @worker = Worker.find(current_worker.id)
-      #現在ログインしているユーザーを@userに格納
-      @worker.update(is_active: "Invalid")
-      #updateで登録情報をInvalidに変更
-      reset_session
-      #sessionIDのresetを行う
-      redirect_to root_path
-      #指定されたrootへのpath
+
+  def hide
+    @worker = Worker.find(params[:id])
+    #is_deletedカラムにフラグを立てる(defaultはfalse)
+      @worker.update(is_deleted: true)
+      #ログアウトさせる
+      redirect_to admin_workers_path
   end
 
 

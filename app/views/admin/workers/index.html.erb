@@ -19,11 +19,11 @@
        </td>
        <td><%= worker.email %></td>
        <td>
-         <%# if worker.is_deleted == true%>
-           <!--<p class="text-danger">退会済</p>-->
-         <%# else %>
+         <% if worker.is_deleted? %>
+           <p class="text-danger">退会済</p>
+         <% else %>
            <p class="text-success">有効</p>
-         <%# end %>
+         <% end %>
        </td>
     </tr>
     <% end %>

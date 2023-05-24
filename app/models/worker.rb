@@ -14,4 +14,7 @@ class Worker < ApplicationRecord
       worker.name = "guestuser"
     end
   end
+  def active_for_authentication?
+    super && !is_deleted
+  end
 end

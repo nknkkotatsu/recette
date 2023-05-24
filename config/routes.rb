@@ -16,6 +16,7 @@ Rails.application.routes.draw do
           resources :comments, only: [:create]
         end
   end
+  put "/worker/:id/hide" => "admin/workers#hide", as: 'worker_hide'
   # 会員用
   # URL /workers/sign_in ...
   devise_for :workers,skip: [:passwords], controllers: {

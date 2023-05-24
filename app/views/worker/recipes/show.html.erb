@@ -8,7 +8,7 @@
                <%= image_tag @recipe.get_recipe_image(200, 200), class: 'img-fluid' %>
           </div>
           <div class="col-md-8">
-               <p><材料></p>
+               <h4>材料</h4>
                <!--<table class="table">-->
                <div class="row">
                     <% @recipe.ingredients.each do |ingredient| %>
@@ -16,7 +16,7 @@
                          <!--     <th><%= ingredient.name %></th>-->
                          <!--     <td><%= ingredient.quantity %></td>-->
                          <!--</tr>-->
-                         <div class="col-md-6"><strong><%= ingredient.name %></strong></div>
+                         <div class="col-md-6"><%= ingredient.name %></div>
                          <div class="col-md-6"><%= ingredient.quantity %></div>
                     <% end %>
                </div>
@@ -25,11 +25,11 @@
      </div>
 
      <div>
-       <p><商品説明></p>
+       <h4>商品説明</h4>
        <%= @recipe.explanation %>
      </div>
      <div>
-       <p><作り方></p>
+       <h4>作り方</h4>
           <% @recipe.procedures.each do |procedure| %>
                <div class="col-md-6"><%= (@total += 1) %>.<%= procedure.procedure %></div>
           <% end %>
@@ -41,7 +41,7 @@
      </div>
                <!--コメント-->
     <div class="row">
-         
+
       <div class="col-md-8 offset-4">
         <%= form_with model: [@recipe, @point], url: worker_recipe_points_path(@recipe) do |f| %>
           <%= f.text_area :point, rows: '5', placeholder: "注意点" %>
