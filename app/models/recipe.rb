@@ -11,7 +11,10 @@ class Recipe < ApplicationRecord
     file_path = Rails.root.join('app/assets/images/no_image.jpg')
     image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
-    image.variant(resize_to_fit: [width, height]).processed
+    image.variant(resize_to_fill: [width, height]).processed
+    # resize_to_fill : 指定サイズ内を"満たす"
+    # resize_to_fit : 指定サイズ内に"おさまる"
+    # resize_to_limit : 指定サイズ内を"超えない" = 指定サイズよりも小さかったら何もしない
   end
 
  accepts_nested_attributes_for :ingredients, :procedures, allow_destroy: true

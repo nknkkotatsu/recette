@@ -5,10 +5,17 @@ class Worker::SearchesController < ApplicationController
     @range = params[:range]
     @recipe = []
     @idea = []
-    if @range == "Recipe"
-      @recipe = Recipe.looks(params[:search], params[:word])
+
+    if params[:search].present?
+      search_mode = params[:search]
     else
-      @idea = Idea.looks(params[:search], params[:word])
+      search_mode = "partial_match"
+    end
+
+    if @range == "Recipe"
+      @recipe = Recipe.looks(search_mode, params[:word])
+    else
+      @idea = Idea.looks(search_mode, params[:word])
     end
   end
 end

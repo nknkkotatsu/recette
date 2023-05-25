@@ -13,7 +13,7 @@ import "popper.js";
 import "bootstrap";
 require("@nathanvda/cocoon")
 
-import "../stylesheets/application"
+import "../stylesheets/application.scss"
 import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
