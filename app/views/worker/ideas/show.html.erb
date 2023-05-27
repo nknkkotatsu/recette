@@ -28,16 +28,15 @@
     </div>
           <!--コメント-->
     <div class="row">
-      <div class="col">
+      <div class="col offset-2">
         <%= form_with model: [@idea, @comment], url: worker_idea_comments_path(@idea) do |f| %>
-        <div>
           <%= f.text_area :comment, rows: '5', placeholder: "良い点・気になる点など", class: "note" %>
-        </div>
+      </div>
         <div style="text-align: center">
           <%= f.submit "送信する" %>
         </div>
         <% end %>
-      </div>
+
     </div>
     <div class="row">
       <div class="col">
