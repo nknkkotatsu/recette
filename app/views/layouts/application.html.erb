@@ -13,7 +13,7 @@
   <body>
     <header class="sticky-top">
 
-      <nav class="navbar navbar-expand-md navbar-light mt-0 mb-0" style="background-color: #CCF7FA;">
+      <nav class="navbar navbar-expand-md navbar-light mt-0 mb-0" style="background-color: #CCF7FA; padding: 10px;">
         <a class="navbar-brand" href="/">
           <%= image_tag 'RecetteLogo.jpg', width: '80px', height: '80px' %>
         </a>
@@ -23,7 +23,7 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-      <ul class="navbar-nav ml-auto" style="text-align: right;">
+      <ul class="container navbar-nav ml-auto" style="justify-content: flex-end;">
           <% if worker_signed_in? %>
           <li class="nav-item active">
               <%= link_to "レシピ登録", new_worker_recipe_path, class: "nav-link" %>

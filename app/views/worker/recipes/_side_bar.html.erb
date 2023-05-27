@@ -3,7 +3,7 @@
   <!--検索窓-->
   <%= render "worker/searches/search",recipe:@recipe %>
   <!--五十音索引-->
-    <ul class="nav flex-column m-0 p-3" style="width: 10rem;">
+    <ul class="nav flex-column m-0 p-3" style="width: 8rem; text-align: center;">
         <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "あ行", worker_search_path(search: "forward_match",word: "あ",range: "Recipe") %></li>
         <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "か行", worker_search_path(search: "forward_match",word: "か",range: "Recipe") %></li>
         <li class="nav-item mb-2" style="background-color: #BEDEE0;"><%= link_to "さ行", worker_search_path(search: "forward_match",word: "さ",range: "Recipe") %></li>
