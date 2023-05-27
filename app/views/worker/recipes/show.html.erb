@@ -42,9 +42,9 @@
                <!--コメント-->
     <div class="row">
 
-      <div class="col-md-8 offset-4">
+      <div class="col-md-8 offset-2">
         <%= form_with model: [@recipe, @point], url: worker_recipe_points_path(@recipe) do |f| %>
-          <%= f.text_area :point, rows: '5', placeholder: "注意点" %>
+          <%= f.text_area :point, rows: '5', placeholder: "注意点", class: "note" %>
           <%= f.submit "送信する" %>
         <% end %>
       </div>
