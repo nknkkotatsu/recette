@@ -30,18 +30,16 @@
     <div class="row">
       <div class="col offset-2">
         <%= form_with model: [@idea, @comment], url: worker_idea_comments_path(@idea) do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "良い点・気になる点など", class: "note" %>
+          <%= f.text_area :comment, rows: '5', placeholder: "良い点・気になる点など", class: "note mt-1" %>
       </div>
         <div style="text-align: center">
           <%= f.submit "送信する" %>
         </div>
         <% end %>
-
     </div>
-    <div class="row">
-      <div class="col">
+    
         <% @idea.comments.each do |comment| %>
-        <div class="card" style="width: 80%;">
+        <div class="card mx-auto mb-1" style="width: 80%;">
           <div class="card-body">
             <h5 class="card-title"><%= comment.worker.name %></h5>
             <p class="card-text"><%= comment.comment %></p>
@@ -49,8 +47,4 @@
           </div>
         </div>
         <% end %>
-      </div>
-    </div>
-
-
 </div>
