@@ -1,14 +1,15 @@
 <div class="container">
   <div class="row justify-content-lg-center">
-      <div class="col-3">
+      <div class="col-md-3">
           <%= render "worker/recipes/side_bar",recipe:@recipe %>
       </div>
-  <div class="col-9 mt-3 mb-3">
+  <div class="col-md-9">
     <h4>レシピ一覧(全<%=@recipes.count %>件)</h4>
-      <div class="row row-cols-1 row-cols-md-4 g-4">
+      <!--<div class="row row-cols-1 row-cols-md-4 g-4">-->
+      <div class="d-flex flex-wrap ">
       <% @recipes.each do |recipe| %>
-          <div class="mr-1">
-             <div class="card text-center border-info mb-3 h-100" style="width: 15rem;">
+          <div style="width: 15rem;">
+             <div class="card text-center border-info h-100" style="width: 14rem;">
               <div class="card-body">
                   <%= link_to worker_recipe_path(recipe.id) do %>
                     <p class="card-text"><%= image_tag recipe.get_recipe_image(200, 200) %></p>
@@ -20,8 +21,9 @@
       <% end %>
       </div>
   </div>
-       <div class="row justify-content-lg-center">
+  </div>
+       <div class="d-flex justify-content-center align-items-center"　style="text-align: center;">
        <%= paginate @recipes %>
        </div>
-  </div>
+
 </div>

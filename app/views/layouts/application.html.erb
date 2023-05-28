@@ -16,29 +16,31 @@
         <a class="navbar-brand" href="/">
           <%= image_tag 'RecetteLogo.jpg', width: '80px', height: '80px' %>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-      <ul class="container navbar-nav ml-auto" style="justify-content: flex-end;">
-          <% if worker_signed_in? %>
-          <li class="nav-item active">
-              <%= link_to "レシピ登録", new_worker_recipe_path, class: "nav-link" %>
-            </li>
+          <ul class="container navbar-nav ml-auto" style="justify-content: flex-end;">
+            <% if worker_signed_in? %>
             <li class="nav-item active">
-              <%= link_to "レシピ一覧", worker_recipes_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "商品案一覧", worker_ideas_path,method: :get, class: "nav-link" %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "ログアウト", destroy_worker_session_path, method: :delete, class: "nav-link" %>
-            </li>
-          <% elsif admin_signed_in? %>
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
-          <% end %>
+                <%= link_to "レシピ登録", new_worker_recipe_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "レシピ一覧", worker_recipes_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "商品案一覧", worker_ideas_path,method: :get, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "ログアウト", destroy_worker_session_path, method: :delete, class: "nav-link" %>
+              </li>
+            <% elsif admin_signed_in? %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
     </header>
     <%= yield %>
   </body>

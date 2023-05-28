@@ -6,7 +6,7 @@
 
         <div class="col-md-3 offset-md-1">
         <div class="row menu">
-            <%= image_tag 'RecetteLogo.jpg', width: '200px', height: '200px' %>
+            <%= image_tag 'RecetteLogo.jpg', class: "topPageImage" %>
             <div class=" col-md-5 py-3">
             <div class= "mx-5 border-arrange1"><%= link_to "レシピ登録", new_worker_recipe_path,method: :get %></div><br>
             <div class= "mx-5 border-arrange1"><%= link_to "レシピ一覧", worker_recipes_path,method: :get %></div><br>
@@ -18,3 +18,10 @@
         </div>
     </div>
 </div>
+<style>
+    .topPageImage {
+        width: 200px;
+        height: 200px;
+        margin: auto;
+    }
+</style>
