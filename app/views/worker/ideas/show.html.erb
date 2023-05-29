@@ -36,11 +36,15 @@
           <%= f.text_area :comment, rows: '5', placeholder: "良い点・気になる点など", class: "note mt-1" %>
       </div>
         <div style="text-align: center">
+          <% if @worker.email == 'guest@example.com'%>
+          <p>ゲストユーザーは送信できません</p>
+          <% else %>
           <%= f.submit "送信する" %>
+          <% end %>
         </div>
         <% end %>
     </div>
-    
+
         <% @idea.comments.each do |comment| %>
         <div class="card mx-auto mb-1" style="width: 80%;">
           <div class="card-body">

@@ -23,6 +23,7 @@ class Worker::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @total = 0
     @point = Point.new
+    @worker = current_worker
   end
 
   def edit
