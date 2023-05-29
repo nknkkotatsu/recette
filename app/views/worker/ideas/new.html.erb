@@ -9,65 +9,63 @@
       <%= form_with model: @idea, url: worker_ideas_path, method: :post do |f| %>
 
     <form>
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">商品画像</label>
+      <div class="form-group row mt-2">
+        <label class="col-md-2 offset-2 col-form-label item-name">商品画像</label>
         <div class="col-sm-8">
           <%= f.file_field :image, class: "form-control-file", accept: 'image/*' %>
         </div>
       </div>
 
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">商品名</label>
+      <div class="form-group row mt-2">
+        <label class="col-md-2 offset-2 col-form-label item-name">商品名</label>
         <div class="col-sm-8">
           <%= f.text_field :name, class: "form-control-file", placeholder: "商品名" %>
         </div>
       </div>
-      
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">原材料</label>
+
+      <div class="form-group row mt-2">
+        <label class="col-md-2 offset-2 col-form-label item-name">原材料</label>
         <div class="col-sm-8">
           <%= f.text_field :ingredient, class: "form-control-file", placeholder: "原材料" %>
         </div>
       </div>
-      
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">アレルゲン</label>
+
+      <div class="form-group row mt-2">
+        <label class="col-md-2 offset-2 col-form-label item-name">アレルゲン</label>
         <div class="col-sm-8">
           <%= f.text_field :allergen, class: "form-control-file", placeholder: "アレルゲン" %>
         </div>
       </div>
 
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">商品説明</label>
+      <div class="form-group row mt-2">
+        <label class="col-md-2 offset-2 col-form-label item-name">商品説明</label>
         <div class="col-sm-8">
           <%= f.text_area :explanation, class: "form-control-file", placeholder: "説明文・アピールポイント" %>
         </div>
       </div>
-      
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">備考</label>
+
+      <div class="form-group row mt-2">
+        <label class="col-md-2 offset-2 col-form-label item-name">備考</label>
         <div class="col-sm-8">
           <%= f.text_area :remarks, class: "form-control-file", placeholder: "包装形態や販売方法" %>
         </div>
       </div>
 
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">ジャンル</label>
-        <div class="col-sm-8">
+      <div class="form-group row mt-2">
+        <label class="col-md-2 offset-2 col-form-label item-name">ジャンル</label>
+        <div class="col-sm-4">
           <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name),  { include_blank: "--選択してください--" }, class: "form-control" %>
         </div>
       </div>
 
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">価格</label>
+      <div class="form-group row mt-2">
+        <label class="col-md-2 offset-2 col-form-label item-name">価格</label>
         <div class="col-sm-8">
-          <div class="form-check form-check-inline">
-            <%= f.text_field :price, class: "form-control", placeholder: "1000" %>円
-          </div>
+          <%= f.text_field :price, placeholder: "1000" %> 円
         </div>
       </div>
 
-      <div class="form-group row justify-content-center">
+      <div class="form-group" style="text-align: center;">
         <%= f.submit "新規登録", class: "btn btn-success" %>
       </div>
     </form>
