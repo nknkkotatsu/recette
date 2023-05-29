@@ -23,7 +23,10 @@
         </table>
       <div style="text-align: center">
       <%= link_to '編集する', edit_worker_idea_path(@idea), class: "btn btn-success" %>
+      <% if @worker.email == 'guest@example.com'%>
+          <% else %>
       <%= link_to '削除する', worker_idea_path(@idea),method: :delete, class: "btn btn-danger" %>
+      <% end %>
     </div>
     </div>
           <!--コメント-->

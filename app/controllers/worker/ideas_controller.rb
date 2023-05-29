@@ -22,6 +22,7 @@ class Worker::IdeasController < ApplicationController
   def show
     @idea = Idea.find(params[:id])
     @comment = Comment.new
+    @worker = current_worker
   end
 
   def edit
