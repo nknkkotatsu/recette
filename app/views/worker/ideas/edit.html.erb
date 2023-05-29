@@ -67,7 +67,11 @@
 
 
       <div class="form-group" style="text-align: center;">
-        <%= f.submit "変更を保存", class: "btn btn-success" %>
+        <% if @worker.email == 'guest@example.com'%>
+          <p>ゲストユーザーは商品案の変更ができません。</p>
+          <% else %>
+          <%= f.submit "変更を保存", class: "btn btn-success" %>
+        <% end %>
       </div>
     </form>
     </div>

@@ -1,6 +1,7 @@
 class Worker::IdeasController < ApplicationController
   def new
     @idea = Idea.new
+    @worker = current_worker
   end
 
   def create
@@ -25,6 +26,7 @@ class Worker::IdeasController < ApplicationController
 
   def edit
     @idea = Idea.find(params[:id])
+    @worker = current_worker
   end
 
   def update

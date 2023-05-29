@@ -1,6 +1,7 @@
 class Worker::RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
+    @worker = current_worker
     @ingredients = @recipe.ingredients.build ##親モデル.子モデル.buildで子モデルのインスタンス作成
     @procedures = @recipe.procedures.build
   end
@@ -26,6 +27,7 @@ class Worker::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @worker = current_worker
   end
 
   def update

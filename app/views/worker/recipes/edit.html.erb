@@ -72,9 +72,13 @@
     </div>
     <div class="row mt-4 pb-5" style="text-align: center;">
       <div class="form-inline mx-auto">
-        <%= f.hidden_field :worker_id, :value => current_worker.id %>
-        <%= f.submit 'レシピを保存', class: 'mr-5 btn btn-md btn-success' %>
-        <%= link_to '削除する', worker_recipe_path,method: :delete, class: "btn btn-danger" %>
+        <% if @worker.email == 'guest@example.com'%>
+          <p>ゲストユーザーはレシピの変更ができません。</p>
+          <% else %>
+          <%= f.hidden_field :worker_id, :value => current_worker.id %>
+          <%= f.submit 'レシピを保存', class: 'mr-5 btn btn-md btn-success' %>
+          <%= link_to '削除する', worker_recipe_path,method: :delete, class: "btn btn-danger" %>
+        <% end %>
       </div>
     </div>
     <% end %>

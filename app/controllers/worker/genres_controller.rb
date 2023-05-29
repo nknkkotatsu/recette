@@ -3,6 +3,7 @@ class Worker::GenresController < ApplicationController
   def index
    @genre = Genre.new
    @genres = Genre.all
+   @worker = current_worker
   end
 
   def create
@@ -18,6 +19,7 @@ class Worker::GenresController < ApplicationController
 
   def edit
     @genre = Genre.find(params[:id])
+    @worker = current_worker
   end
 
   def update

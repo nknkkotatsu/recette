@@ -1,11 +1,14 @@
-<%= flash[:notice] %>
 <div class="container">
   <div class="row">
     <div class="col-5">
       <h3 class="bg-light">ジャンル一覧・追加</h3>
       <%= form_with model: @genre, url: worker_genres_path, method: :post do |f| %>
       <div class="form-check form-check-inline">
-        <p>ジャンル名&emsp;&emsp;<%= f.text_field :name %>&emsp;&emsp;<%= f.submit '新規登録', class:"btn btn-success" %></p>
+        <% if @worker.email == 'guest@example.com'%>
+          <p>ゲストユーザーはジャンルの追加ができません。</p>
+          <% else %>
+          <p>ジャンル名&emsp;&emsp;<%= f.text_field :name %>&emsp;&emsp;<%= f.submit '新規登録', class:"btn btn-success" %></p>
+        <% end %>
       </div>
       <% end %>
   
