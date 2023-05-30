@@ -16,7 +16,7 @@ class Worker::IdeasController < ApplicationController
   end
 
   def index
-    @ideas = Idea.all.page(params[:page]).per(10)
+    @ideas = Idea.all.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show
