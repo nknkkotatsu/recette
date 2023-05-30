@@ -19,7 +19,7 @@
           <tbody>
             <% @ideas.each do |idea| %>
             <tr>
-              <td><%= image_tag idea.get_idea_image(200, 200) %></td>
+              <td><%= image_tag idea.get_idea_image(200, 200), class: 'img-fluid' , style: 'width: 200px; height: 200px; object-fit: cover;' %></td>
               <td><%= idea.created_at.strftime('%Y/%m/%d') %></td>
               <td><%= link_to idea.name, worker_idea_path(idea) %></td>
               <td><%= idea.worker.name %></td>
