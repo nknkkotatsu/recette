@@ -34,7 +34,7 @@ class Worker::RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      redirect_to worker_recipe_path(recipe.id)
+      redirect_to worker_recipe_path
     else
       render :edit
     end
