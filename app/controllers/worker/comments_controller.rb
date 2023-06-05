@@ -6,6 +6,12 @@ class Worker::CommentsController < ApplicationController
     comment.save
     redirect_to worker_idea_path(idea)
   end
+  
+  def destroy
+    @comment = Comment.find(params[:id])
+    @somment.destroy
+    redirect_to worker_idea_path(@idea.id)
+  end
 
   private
 

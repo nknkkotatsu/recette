@@ -13,7 +13,7 @@ Rails.application.routes.draw do
           resources  :points, only: [:create]
         end
         resources :ideas do
-          resources :comments, only: [:create]
+          resources :comments, only: [:create,:destroy]
         end
   end
   put "/worker/:id/hide" => "admin/workers#hide", as: 'worker_hide'
