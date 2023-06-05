@@ -1,8 +1,12 @@
 <div class="container">
      <div class="my-3">
-          <% @recipe.points.each do |point| %>
-          <i class="fas fa-exclamation-triangle"></i> <%= point.point %>
-          <% end %>
+          <ul>
+                    <% @recipe.points.each do |point| %><li>
+                    <i class="fas fa-exclamation-triangle"></i> <%= point.point %>
+                    <%= link_to '削除する',  worker_recipe_point_path(@recipe,point),method: :delete, class: "btn btn-danger" %></li>
+                    <% end %>
+          </ul>
+          
      </div>
      
 <h3><%= @recipe.name %></h3>

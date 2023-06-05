@@ -12,7 +12,7 @@ class Worker::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to worker_idea_path
+    redirect_back fallback_location: worker_ideas_path
   end
 
   private

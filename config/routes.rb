@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :workers, only: [:index,:show,:edit,:update,]
       resources :genres
         resources :recipes do
-          resources  :points, only: [:create]
+          resources  :points, only: [:create,:destroy]
         end
         resources :ideas do
           resources :comments, only: [:create,:destroy]
