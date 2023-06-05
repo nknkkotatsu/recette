@@ -1,5 +1,5 @@
 class Worker::CommentsController < ApplicationController
-  #before_action :ensure_worker, only: [:destroy]
+  before_action :ensure_worker, only: [:destroy]
   
   def create
     idea = Idea.find(params[:idea_id])
