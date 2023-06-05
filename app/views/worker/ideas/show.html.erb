@@ -22,15 +22,15 @@
           <tr><th>備考</th><td><%= @idea.remarks %></td></tr>
         </table>
         <% if @idea.worker == current_worker %>
-      <div style="text-align: center">
-      <%= link_to '編集する', edit_worker_idea_path(@idea), class: "btn btn-success" %>
-      <% if @worker.email == 'guest@example.com'%>
+          <div style="text-align: center">
+          <%= link_to '編集する', edit_worker_idea_path(@idea), class: "btn btn-success" %>
+          <% if @worker.email == 'guest@example.com'%>
+              <% else %>
+          <%= link_to '削除する', worker_idea_path(@idea),method: :delete, class: "btn btn-danger" %>
+          <% end %>
+        </div>
           <% else %>
-      <%= link_to '削除する', worker_idea_path(@idea),method: :delete, class: "btn btn-danger" %>
-      <% end %>
-    </div>
-      <% else %>
-    <% end %>
+        <% end %>
     </div>
           <!--コメント-->
     <div class="row">
@@ -54,8 +54,11 @@
             <h5 class="card-title"><%= comment.worker.name %></h5>
             <p class="card-text"><%= comment.comment %></p>
             <p><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+            <% if comment.worker == current_worker %>
+              <%= link_to '削除する',  worker_idea_comment_path(@idea, comment),method: :delete, class: "btn btn-danger" %>
+              <% else %>
+            <% end %>
           </div>
         </div>
-        <%= link_to '削除する',  worker_idea_comment_path(@idea, comment),method: :delete, class: "btn btn-danger" %>
         <% end %>
 </div>

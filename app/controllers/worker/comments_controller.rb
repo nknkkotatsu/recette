@@ -1,4 +1,6 @@
 class Worker::CommentsController < ApplicationController
+  before_action :ensure_worker, only: [:destroy]
+  
   def create
     idea = Idea.find(params[:idea_id])
     comment = current_worker.comments.new(comment_params)
@@ -9,13 +11,18 @@ class Worker::CommentsController < ApplicationController
   
   def destroy
     @comment = Comment.find(params[:id])
-    @somment.destroy
-    redirect_to worker_idea_path(@idea.id)
+    @comment.destroy
+    redirect_to worker_idea_path
   end
 
   private
 
   def comment_params
     params.require(:comment).permit(:comment)
+  end
+  
+  def ensure_worker
+    @comment = current_worker.comments.find_by(id: params[:id])
+    redirect_to worker_ideas_path unless @comment
   end
 end
