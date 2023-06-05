@@ -1,4 +1,6 @@
 class Worker::IdeasController < ApplicationController
+  before_action :ensure_worker, only: [:edit, :update, :destroy]
+  
   def new
     @idea = Idea.new
     @worker = current_worker
@@ -51,5 +53,10 @@ class Worker::IdeasController < ApplicationController
 
   def idea_params
     params.require(:idea).permit(:image, :name, :ingredient, :allergen, :explanation, :remarks, :genre_id, :price )
+  end
+  
+  def ensure_worker
+    @idea = current_worker.ideas.find_by(id: params[:id])
+  redirect_to worker_ideas_path unless @idea
   end
 end

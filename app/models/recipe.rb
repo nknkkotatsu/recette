@@ -36,7 +36,8 @@ class Recipe < ApplicationRecord
         @recipe = Recipe.where("name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? ",
                                 "あ%", "い%", "う%", "え%", "お%", "ア%", "イ%", "ウ%", "エ%", "オ%",)
       elsif word.start_with?("か")
-        @recipe = Recipe.where("name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ?
+      #  @recipe = Recipe.where("name regexp ?", "^[かきくけこがぎぐげご]")
+         @recipe = Recipe.where("name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ?
                                 OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? OR name LIKE ? ",
                                 "か%", "き%", "く%", "け%", "こ%", "カ%", "キ%", "ク%", "ケ%", "コ%",
                                 "が%", "ぎ%", "ぐ%", "げ%", "ご%", "ガ%", "ギ%", "グ%", "ゲ%", "ゴ%",)

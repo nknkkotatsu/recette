@@ -1,4 +1,5 @@
 class Worker::RecipesController < ApplicationController
+  
   def new
     @recipe = Recipe.new
     @worker = current_worker

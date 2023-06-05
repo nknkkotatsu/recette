@@ -21,6 +21,7 @@
           <tr><th>アレルゲン</th><td><%= @idea.allergen %></td></tr>
           <tr><th>備考</th><td><%= @idea.remarks %></td></tr>
         </table>
+        <% if @idea.worker == current_worker %>
       <div style="text-align: center">
       <%= link_to '編集する', edit_worker_idea_path(@idea), class: "btn btn-success" %>
       <% if @worker.email == 'guest@example.com'%>
@@ -28,6 +29,8 @@
       <%= link_to '削除する', worker_idea_path(@idea),method: :delete, class: "btn btn-danger" %>
       <% end %>
     </div>
+      <% else %>
+    <% end %>
     </div>
           <!--コメント-->
     <div class="row">
@@ -37,7 +40,7 @@
       </div>
         <div class="mb-2" style="text-align: center">
           <% if @worker.email == 'guest@example.com'%>
-          <p>ゲストユーザーは送信できません</p>
+          <p>ゲストユーザーは商品案の編集・コメントの送信ができません</p>
           <% else %>
           <%= f.submit "送信する" %>
           <% end %>

@@ -31,6 +31,12 @@
                 <%= link_to "レシピ一覧", worker_recipes_path, class: "nav-link" %>
               </li>
               <li class="nav-item active">
+                <%= link_to "ジャンル一覧", worker_genres_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "商品案登録", new_worker_idea_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
                 <%= link_to "商品案一覧", worker_ideas_path,method: :get, class: "nav-link" %>
               </li>
               <li class="nav-item active">
